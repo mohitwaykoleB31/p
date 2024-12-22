@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        #background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .scroll-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+            height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 20px 0;
+        }
+
+        .photo {
+            margin: 20px 0;
+            border-radius: 50%;
+            width: 15cm;
+            height: 15cm;
+            object-fit: cover;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .album {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            width: 80vw;
+        }
+
+        .page {
+            position: relative;
+            width: 180px;
+            height: 250px;
+            margin: 10px;
+            perspective: 1000px;
+        }
+
+        .page .inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform-origin: left;
+            transition: transform 0.8s;
+            overflow: hidden;
+        }
+
+        .page:hover .inner {
+            transform: rotateY(-180deg);
+        }
+
+        .page .inner img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 60px;
+            height: 80px;
+            background: red;
+            border-radius: 50%;
+            animation: floatUp 6s infinite ease-in-out;
+        }
+
+        p {
+            font-size: 0.8cm;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh);
+                opacity: 0;
+            }
+        }
+
+        .balloon:nth-child(2) {
+            background: blue;
+        }
+
+        .balloon:nth-child(3) {
+            background: yellow;
+        }
+
+        .balloon:nth-child(4) {
+            background: green;
+        }
+
+        .balloon:nth-child(5) {
+            background: orange;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            .photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .album {
+                width: 90vw;
+            }
+
+            .page {
+                width: 150px;
+                height: 200px;
+            }
+
+            .balloon {
+                width: 50px;
+                height: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .album {
+                width: 95vw;
+            }
+
+            .page {
+                width: 130px;
+                height: 180px;
+            }
+
+            .balloon {
+                width: 40px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            p {
+                font-size: 0.5cm;
+            }
+        }
+
+        @media (max-width: 480px) {
+            p {
+                font-size: 0.7cm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="istockphoto-1410144940-640_adpp_is.mp4" type="video/mp4">
+    </video>
+    <div class="scroll-container">
+        <h1>Happy Birthday!</h1>
+        <br>
+        <h1>Magical Movements of your life</h1>
+        <div class="album"></div>
+        <p>Happy Sweet 16, and welcome to the exciting journey of 17! Today is a celebration of how much you’ve grown
+            and all the amazing things that await you in this new chapter. At 16, you’ve already shown so much strength,
+            beauty, and kindness, and I know this year will bring even more opportunities for you to shine. May your
+            birthday be as bright and joyful as you are, filled with laughter, love, and unforgettable memories. Here's
+            to chasing your dreams, making new adventures, and embracing every moment with a smile. Have the most
+            magical birthday ever—you deserve it all and more!</p>
+            <p>"I know the website isn't that great, but I tried my best. I hope you like it."</p>
+            <p>Your Friend MOHIT </p>
+    </div>
+    <div class="balloons"></div>
+
+    <script>
+        const albumContainer = document.querySelector('.album');
+        const images = [
+            "IMG-20241216-WA0001.jpg", "IMG-20241216-WA0002.jpg", "IMG-20241216-WA0003.jpg", "IMG-20241216-WA0004.jpg", "IMG-20241216-WA0005.jpg",
+            "IMG-20241216-WA0006.jpg", "IMG-20241216-WA0007.jpg", "IMG-20241216-WA0008.jpg", "IMG-20241216-WA0009.jpg", "IMG-20241216-WA0010.jpg",
+            "IMG-20241216-WA0011.jpg", "IMG-20241216-WA0012.jpg", "IMG-20241216-WA0013.jpg", "IMG-20241216-WA0014.jpg", "IMG-20241216-WA0015.jpg",
+            "IMG-20241216-WA0016.jpg", "IMG-20241216-WA0017.jpg", "IMG-20241216-WA0018.jpg", "IMG-20241216-WA0019.jpg", "IMG-20241216-WA0020.jpg",
+            "IMG-20241216-WA0021.jpg", "IMG-20241216-WA0022.jpg", "IMG-20241216-WA0023.jpg",
+        ];
+
+
+        images.forEach(src => {
+            const page = document.createElement('div');
+            page.classList.add('page');
+            const inner = document.createElement('div');
+            inner.classList.add('inner');
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = "Birthday Photo";
+            inner.appendChild(img);
+            page.appendChild(inner);
+            albumContainer.appendChild(page);
+        });
+
+        const balloonContainer = document.querySelector('.balloons');
+        for (let i = 0; i < 20; i++) {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = Math.random() * 100 + 'vw';
+            balloon.style.animationDelay = Math.random() * 3 + 's';
+            balloon.style.animationDuration = 4 + Math.random() * 2 + 's';
+            balloonContainer.appendChild(balloon);
+        }
+    </script>
+</body>
+
+</html>
